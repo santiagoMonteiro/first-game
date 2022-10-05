@@ -8,6 +8,11 @@ public class PlayerController : MonoBehaviour // defining class and heritage
 {
     private Rigidbody2D rigidBody;
     private Vector2 velocity;
+    public AudioSource audioSource;
+    public AudioClip attack1Sound;
+    public AudioClip attack2Sound;
+    public AudioClip damageSound;
+    public AudioClip dashSound;
 
     public int life;
     public bool canJump;
@@ -24,6 +29,7 @@ public class PlayerController : MonoBehaviour // defining class and heritage
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         rigidBody = GetComponent<Rigidbody2D>();
         skinAnimator = skin.GetComponent<Animator>();
         currentLevel = SceneManager.GetActiveScene().name;
@@ -56,6 +62,7 @@ public class PlayerController : MonoBehaviour // defining class and heritage
 
         if (Input.GetButtonDown("Fire2") && dashTime > 1)
         {
+            audioSource.PlayOneShot(dashSound, 0.3f);
             dashTime = 0;
             skinAnimator.Play("PlayerDash", -1);
             rigidBody.velocity = Vector2.zero;
@@ -72,6 +79,15 @@ public class PlayerController : MonoBehaviour // defining class and heritage
 
             comboTime = 0;
             skinAnimator.Play("PlayerAttack" + comboNumber, -1);
+
+            if (comboNumber == 1)
+            {
+                audioSource.PlayOneShot(attack1Sound, 1f);
+            }
+            else
+            {
+                audioSource.PlayOneShot(attack2Sound, 0.8f);
+            }
         }
 
         if (comboTime >= 1)

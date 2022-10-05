@@ -38,6 +38,9 @@ public class Character : MonoBehaviour
             skinAnimator.Play("PlayerDamage", 1);
             cam.GetComponent<Animator>().Play(
                 "CameraPlayerDamage", -1);
+            
+            GetComponent<PlayerController>().audioSource
+                .PlayOneShot(GetComponent<PlayerController>().damageSound, 0.5f);
         }
     }
 }

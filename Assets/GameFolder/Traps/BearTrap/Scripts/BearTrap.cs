@@ -6,13 +6,15 @@ using UnityEngine;
 public class BearTrap : MonoBehaviour
 {
     private Transform player;
-
     public Transform skin;
+    
+    public AudioSource audioSource;
+    public AudioClip clip;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class BearTrap : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             skin.GetComponent<Animator>().Play("Stuck", -1);
+            audioSource.PlayOneShot(clip, 0.8f);
             
             player = collision.transform;
             player.position = transform.position;

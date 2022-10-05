@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class KeeperController : MonoBehaviour
@@ -10,10 +11,15 @@ public class KeeperController : MonoBehaviour
     public Transform keeperRange;
     public Animator skinAnimator;
 
+    public AudioSource audioSource;
+    public AudioClip dieSound;
+    
+
     public bool goRight;
     
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         skinAnimator = skin.GetComponent<Animator>();
     }
 
@@ -21,6 +27,7 @@ public class KeeperController : MonoBehaviour
     {
         if (GetComponent<Character>().life <= 0)
         {
+            audioSource.PlayOneShot(dieSound, 0.5f);
             keeperRange.GetComponent<CircleCollider2D>().enabled = false;
             GetComponent<CapsuleCollider2D>().enabled = false;
             enabled = false;

@@ -55,6 +55,7 @@
      <Compile Include="Assets\GameFolder\Traps\SpikeTrap\Scripts\SpikeTrap1.cs" />
      <Compile Include="Assets\GameFolder\Decoration\Scripts\EnemyDoorController.cs" />
      <Compile Include="Assets\GameFolder\Ghost\Scripts\GhostController.cs" />
+     <Compile Include="Assets\GameFolder\Scene\Trigger\Scripts\TriggerLevel1Level2.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>

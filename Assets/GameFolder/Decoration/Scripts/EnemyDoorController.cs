@@ -7,13 +7,11 @@ public class EnemyDoorController : MonoBehaviour
     private int lifeChange;
     public Transform lifeBar;
     
-    // Start is called before the first frame update
     void Start()
     {
         lifeChange = GetComponent<Character>().life;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (lifeChange != GetComponent<Character>().life)

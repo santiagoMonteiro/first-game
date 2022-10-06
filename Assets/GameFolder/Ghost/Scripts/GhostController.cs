@@ -9,10 +9,6 @@ public class GhostController : MonoBehaviour
     public Transform b;
 
     public bool goRight;
-    void Start()
-    {
-        
-    }
 
     void Update()
     {

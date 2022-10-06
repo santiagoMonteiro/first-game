@@ -6,6 +6,7 @@ public class BatController : MonoBehaviour
 {
     public Transform player;
     public float attackTime;
+    
     void Start()
     {
         attackTime = 0;

@@ -14,12 +14,6 @@ public class FireTrapEvent : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void PlaySound()
     {
         audioSource.PlayOneShot(clip, 0.8f);

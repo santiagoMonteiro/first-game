@@ -43,11 +43,16 @@
   <ItemGroup>
      <Compile Include="Assets\GameFolder\Player\Scripts\PlayerController.cs" />
      <Compile Include="Assets\GameFolder\PowerUp\Scripts\AddHeart.cs" />
+     <Compile Include="Assets\GameFolder\Player\Scripts\FloorCollider.cs" />
+     <Compile Include="Assets\GameFolder\Scene\Trigger\Scripts\TriggerLevel2Level3.cs" />
      <Compile Include="Assets\GameFolder\Character\Scripts\Character.cs" />
      <Compile Include="Assets\GameFolder\Bat\Scripts\BatController.cs" />
      <Compile Include="Assets\GameFolder\Bat\Scripts\BatTrigger.cs" />
      <Compile Include="Assets\GameFolder\Traps\FireTrap\Scripts\FireTrap.cs" />
      <Compile Include="Assets\GameFolder\Keeper\Script\KeeperController.cs" />
+     <Compile Include="Assets\GameFolder\Keeper\Script\KeeperEvent.cs" />
+     <Compile Include="Assets\GameFolder\Traps\FireTrap\Scripts\FireTrapEvent.cs" />
+     <Compile Include="Assets\GameFolder\Traps\SpikeTrap2\Scripts\SpikeTrap2Sound.cs" />
      <Compile Include="Assets\GameFolder\Keeper\Script\KeeperAttackCollider.cs" />
      <Compile Include="Assets\GameFolder\Player\Scripts\AttackCollider.cs" />
      <Compile Include="Assets\GameFolder\Scene\Trigger\Scripts\TriggerLevel1Level2.cs" />
@@ -56,11 +61,6 @@
      <Compile Include="Assets\GameFolder\Traps\SpikeTrap\Scripts\SpikeTrap1.cs" />
      <Compile Include="Assets\GameFolder\Decoration\Scripts\EnemyDoorController.cs" />
      <Compile Include="Assets\GameFolder\Ghost\Scripts\GhostController.cs" />
-     <Compile Include="Assets\GameFolder\Scene\Trigger\Scripts\TriggerLevel2Level3.cs" />
-     <Compile Include="Assets\GameFolder\Player\Scripts\FloorCollider.cs" />
-     <Compile Include="Assets\GameFolder\Keeper\Script\KeeperEvent.cs" />
-     <Compile Include="Assets\GameFolder\Traps\SpikeTrap2\Scripts\SpikeTrap2Sound.cs" />
-     <Compile Include="Assets\GameFolder\Traps\FireTrap\Scripts\FireTrapEvent.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.10f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>

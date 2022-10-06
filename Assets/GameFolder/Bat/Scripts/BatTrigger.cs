@@ -5,15 +5,6 @@ using UnityEngine;
 public class BatTrigger : MonoBehaviour
 {
     public Transform[] bat;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {

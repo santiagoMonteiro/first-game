@@ -13,7 +13,6 @@ public class KeeperController : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip dieSound;
-    
 
     public bool goRight;
     

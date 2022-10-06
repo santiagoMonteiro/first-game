@@ -8,24 +8,25 @@ public class PlayerController : MonoBehaviour // defining class and heritage
 {
     private Rigidbody2D rigidBody;
     private Vector2 velocity;
-    public AudioSource audioSource;
-    public AudioClip attack1Sound;
-    public AudioClip attack2Sound;
-    public AudioClip damageSound;
-    public AudioClip dashSound;
 
     public int life;
     public bool canJump;
     public float dashTime;
     public int comboNumber;
     public float comboTime;
+    public string currentLevel;
     
     public Transform floorCollider;
     public Transform skin;
     public Animator skinAnimator;
     public LayerMask floorLayer;
 
-    public string currentLevel;
+    public AudioSource audioSource;
+    public AudioClip attack1Sound;
+    public AudioClip attack2Sound;
+    public AudioClip damageSound;
+    public AudioClip dashSound;
+    
 
     void Start()
     {

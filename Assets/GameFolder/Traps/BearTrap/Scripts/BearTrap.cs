@@ -17,12 +17,6 @@ public class BearTrap : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void ReleasePlayer()
     {
         player.GetComponent<PlayerController>().enabled = true;

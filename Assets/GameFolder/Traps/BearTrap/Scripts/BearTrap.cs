@@ -22,6 +22,12 @@ public class BearTrap : MonoBehaviour
         player.GetComponent<PlayerController>().enabled = true;
     }
 
+    void ResetTrap()
+    {
+        GetComponent<BoxCollider2D>().enabled = true;
+        skin.GetComponent<Animator>().Play("UnStuck", -1);
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -47,6 +53,7 @@ public class BearTrap : MonoBehaviour
             player.GetComponent<PlayerController>().enabled = false;
             
             Invoke("ReleasePlayer", 2);
+            Invoke("ResetTrap", 10);
         }
     }
 }

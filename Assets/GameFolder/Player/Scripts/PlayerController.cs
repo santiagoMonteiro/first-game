@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour // defining class and heritage
     public Transform floorCollider;
     public Transform skin;
     public Animator skinAnimator;
+    public Transform gameOverScreen;
+    public Transform pauseScreen;
     public LayerMask floorLayer;
 
     public AudioSource audioSource;
@@ -44,21 +46,31 @@ public class PlayerController : MonoBehaviour // defining class and heritage
             currentLevel = SceneManager.GetActiveScene().name;
             transform.position = GameObject.Find("Spawn").transform.position;
         }
-        
+
         life = GetComponent<Character>().life;
-        velocity = new Vector2(Input.GetAxisRaw("Horizontal") * 7, rigidBody.velocity.y);
+        velocity = new Vector2(
+            Input.GetAxisRaw("Horizontal") * 7, rigidBody.velocity.y);
         dashTime += Time.deltaTime;
         comboTime += Time.deltaTime;
         
         canJump = Physics2D.OverlapCircle(
             floorCollider.position,
-            0.2f * 6,
+            0.177f * 6,
             floorLayer);
         
         if (life <= 0)
         {
+            print(gameOverScreen.GetComponent<GameOver>().enabled);
+            gameOverScreen.GetComponent<GameOver>().enabled = true;
+
             rigidBody.simulated = false;
             enabled = false;
+        }
+
+        if (Input.GetButtonDown("Cancel"))
+        {
+            pauseScreen.GetComponent<Pause>().enabled =
+                !pauseScreen.GetComponent<Pause>().enabled;
         }
 
         if (Input.GetButtonDown("Fire2") && dashTime > 1)
@@ -67,7 +79,9 @@ public class PlayerController : MonoBehaviour // defining class and heritage
             dashTime = 0;
             skinAnimator.Play("PlayerDash", -1);
             rigidBody.velocity = Vector2.zero;
+            rigidBody.gravityScale = 0;
             rigidBody.AddForce(new Vector2(skin.localScale.x * 100 * 7, 0));
+            Invoke("RestoreGravityScale", 0.3f);
         }
 
         if (Input.GetButtonDown("Fire1") && comboTime > 0.5f)
@@ -114,11 +128,21 @@ public class PlayerController : MonoBehaviour // defining class and heritage
         }
     }
 
+    public void DestroyPlayer()
+    {
+        Destroy(transform.gameObject);
+    }
+
     private void FixedUpdate()
     {
         if (dashTime > 0.5f)
         {
             rigidBody.velocity = velocity;
         }
+    }
+
+    void RestoreGravityScale()
+    {
+        rigidBody.gravityScale = 6;
     }
 }

@@ -13,6 +13,7 @@ public class BatTrigger : MonoBehaviour
             foreach (Transform obj in bat)
             {
                 obj.GetComponent<BatController>().enabled = true;
+                obj.GetComponent<BatController>().player = collision.transform;
             }
         }
     }
